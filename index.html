@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>kaggle日記</title>
+</head>
+<body>
+  <div id="add_page", style="width:100%; height:100vh; text-align:center;">
+    <!-- 記録ページ -->
+    <button id="add_cell_button">+ 追加</button>
+    <div id="add_cell_select">
+      <button class="cell-selections", onclick="addSubmission()">提出</button>
+      <button class="cell-selections", onclick="addDataAnalysis()">分析</button>
+      <button class="cell-selections", onclick="addIdea()">疑問</button>
+      <button class="cell-selections", onclick="addFeatureEngineering()">特徴量</button>
+    </div>
+
+    <!-- サブミッション型 -->
+    <div id="submission_form", class="input_form", style="display: none">
+      <!-- モデル名、ファイルパス、CVスコア、PBスコア、パラメータ、利用した特徴量、変更点、備考欄 -->
+      <input id="submission_model_name"   , placeholder="モデル名"     , type="text">
+      <input id="submission_file_path"    , placeholder="ファイル"     , type="file">
+      <input id="submission_CV_score"     , placeholder="CVスコア"     , type="number">
+      <input id="submission_PB_score"     , placeholder="PBスコア"     , type="number">
+      <input id="submission_features"     , placeholder="利用した特徴量", type="text", class="form_type_1"><br>
+      <textarea id="submission_parameters", placeholder="パラメータ"       , class="form_type_1"></textarea><br>
+      <textarea id="submission_changed"   , placeholder="変更点"           , style="height: 20%;", class="form_type_1"></textarea><br>
+      <textarea id="submission_else"      , placeholder="備考 (markdown可)", style="height: 20%;", class="form_type_1"></textarea>
+      <button onclick="saveForm('Submit')", style="display:block;">保存</button>
+    </div>
+
+    <!-- データ分析型 -->
+    <div id="dataAnalysis_form", class="input_form", style="display: none">
+      <!-- 対象列、仮定/目的、コード、実行結果（グラフなど）、備考 -->
+      <input    id="dataAnalysis_target", placeholder="対象列" ,type="text", class="form_type_1"> <!-- 特徴量から選択 -->
+      <textarea id="dataAnalysis_reason", placeholder="仮定/目的/理由など", style="height: 20%;", class="form_type_1"></textarea>
+      <textarea id="dataAnalysis_code"  , placeholder="コードをペースト"  , style="height: 20%;", class="form_type_1"></textarea>
+      <textarea id="dataAnalysis_result", placeholder="結果/考察"        , style="height: 20%;", class="form_type_1"></textarea>
+      <input    id="dataAnalysis_image", type="file", accept=".jpg, .jpeg, .png, .gif"></textarea>
+      <textarea id="dataAnalysis_else"  , placeholder="備考 (markdown可)", style="height: 20%;", class="form_type_1"></textarea>
+      <button onclick="saveForm('DataAnalysis')", style="display:block;">保存</button>
+    </div>
+    
+    <!-- アイデア・疑問型 -->
+    <div id="idea_form", class="input_form", style="display: none">
+      <!-- 重要度、どこから思いついたか、アイデア/疑問、備考 -->
+      <input    id="idea_importance", placeholder="重要度（大きいほど高い）"  , type="number">
+      <textarea id="idea_reason"    , placeholder="どこから思いついたか、など", style="height: 20%;", class="form_type_1"></textarea>
+      <input    id="idea_context"   , placeholder="内容"                    , type="text"         , class="form_type_1">
+      <textarea id="idea_else"      , placeholder="備考 (markdown可)"       , style="height: 20%;", class="form_type_1"></textarea>
+      <button onclick="saveForm('Idea')", style="display:block;">保存</button>
+    </div>
+    
+    <!-- 特徴量型 -->
+    <div id="featureEngineering_form", class="input_form", style="display: none">
+      <!-- 特徴量、計算方法、意図、備考 -->
+      <input    id="featureEngineering_importance", placeholder="特徴量"  , class="form_type_1", type="text">
+      <textarea id="featureEngineering_reason"    , placeholder="計算方法", class="form_type_1"></textarea>
+      <textarea id="featureEngineering_context"   , placeholder="意図"    , class="form_type_1"></textarea>
+      <textarea id="featureEngineering_else"      , placeholder="備考 (markdown可)"       , style="height: 20%;", class="form_type_1"></textarea>
+      <button onclick="saveForm('FeatureEngineering')", style="display:block;">保存</button>
+    </div>
+
+    <!-- ここに追加される -->
+  </div>
+
+  <div>
+    <!-- ランキングページ -->
+  </div>
+
+  <div>
+    <!-- 特徴量 -->
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

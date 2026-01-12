@@ -1,0 +1,108 @@
+
+#add_cell_select{
+  display: none;
+}
+.cell-selections {
+  display: inline;
+}
+.input_form {
+  width      : 90%;
+  margin     : 0 auto;
+  border     : 1px solid black;
+  padding    : 20px;
+  text-align : left
+}
+
+.form_type_1 {
+  width      : 100%;
+  max-width  : 100%;
+  box-sizing : border-box;
+}
+
+
+
+
+
+/* 外枠 */
+.submission-cell {
+  width: 90%;
+  margin: 16px auto;
+  padding: 14px 10px 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* 左上 Submit */
+.submission-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-6px, -6px);
+  font-size: 12px;
+  padding: 2px 6px;
+  background: #444;
+  color: #fff;
+  border-radius: 3px;
+}
+
+/* 上段（横並び） */
+.submission-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid #ddd;
+  padding: 8px 0 10px;
+  margin-bottom: 6px;
+}
+
+.top-model {
+  font-weight: 600;
+  text-align: left;
+}
+
+.top-scores {
+  text-align: right;      /* ← CV / PB を右揃え */
+  white-space: nowrap;
+}
+
+/* 表形式（縦線） */
+.kv-table {
+  border-top: 1px solid #ddd;
+  margin-bottom: 6px;
+}
+
+.kv-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: start;
+}
+
+.kv-label {
+  padding: 8px 10px 8px 0;
+  text-align: left;
+}
+
+.kv-value {
+  padding: 8px 0 8px 10px;
+  border-left: 1px solid #bbb;
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 0;
+  line-height: 1.5;        /* ← 行数依存で自然に伸びる */
+}
+
+/* セル区切り */
+.submission-sep {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0 0;
+}
+
+/* 追加: 入力フォームとセルの最大幅を 920px に制限して中央寄せ */
+.input_form,
+.submission-cell {
+  width: 90%;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
